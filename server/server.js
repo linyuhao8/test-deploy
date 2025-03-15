@@ -11,7 +11,7 @@ app.prepare().then(() => {
   server.use("/user", userRoutes);
   // Express API 路由
   server.get("/api/hello", (req, res) => {
-    res.json({ message: "Helsasdasdsasdsaadasasd!" });
+    res.json({ message: "This is form backend message!" });
   });
   server.get("/api/jj", (req, res) => {
     res.json({ message: "jj" });
