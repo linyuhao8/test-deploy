@@ -4,11 +4,11 @@ const next = require("next");
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
-const userRoutes = require("./routes/user");
+const articleRoutes = require("./routes/article");
 
 app.prepare().then(() => {
   const server = express();
-  server.use("/user", userRoutes);
+  server.use("/api/articles", articleRoutes);
   // Express API 路由
   server.get("/api/hello", (req, res) => {
     res.json({ message: "This is form backend message!" });
