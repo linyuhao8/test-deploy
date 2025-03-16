@@ -1,9 +1,10 @@
 // app/articles/[id]/page.tsx
 import { getArticleById,getAllArticles } from "../../../lib/api"; // 假設這是獲取單篇文章的函數
 import Navbar from '../../components/Navber';
-
+export const revalidate = 60;
 export default async function ArticlePage({ params }) {
-    const article = await getArticleById(params.id);
+  const {id} = await params;
+  const article = await getArticleById(id);
   return (
     <div className="bg-gray-100">
       <Navbar />
@@ -21,11 +22,11 @@ export default async function ArticlePage({ params }) {
 }
 
 // generateStaticParams 用來生成所有文章頁面的路由
-export async function generateStaticParams() {
-  const articles = await getAllArticles();
-  return articles.map((article) => ({
-    id: String(article.id), // 每篇文章的 ID 會對應到動態路由參數
-  }));
-}
+// export async function generateStaticParams() {
+//   const articles = await getAllArticles();
+//   return articles.map((article) => ({
+//     id: String(article.id), // 每篇文章的 ID 會對應到動態路由參數
+//   }));
+// }
 
 
