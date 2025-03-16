@@ -14,7 +14,7 @@ RUN npm install
 RUN npm run build
 
 # 暴露端口
-EXPOSE 3000 3000
+EXPOSE 8080 8080
 
 # 啟動 Next.js 及 Express
 CMD ["sh", "-c", "npm start"]
